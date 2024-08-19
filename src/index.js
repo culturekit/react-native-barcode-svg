@@ -104,7 +104,14 @@ const drawSvgBars = (encodings, options = {}) => {
 
 export default function Barcode(props) {
   const {
-    value, format, singleBarWidth, maxWidth, height, lineColor, backgroundColor, onError,
+    value = '', 
+    format = 'CODE128', 
+    singleBarWidth = 2, 
+    maxWidth, 
+    height = 100, 
+    lineColor = '#000000', 
+    backgroundColor = '#FFFFFF', 
+    onError,
   } = props;
   const [bars, setBars] = useState([]);
   const [barcodeWidth, setBarCodeWidth] = useState(0);
@@ -170,17 +177,6 @@ Barcode.propTypes = {
   lineColor: PropTypes.string,
   backgroundColor: PropTypes.string, // background
   onError: PropTypes.func,
-};
-
-Barcode.defaultProps = {
-  value: '',
-  format: 'CODE128',
-  singleBarWidth: 2, // width
-  maxWidth: undefined,
-  height: 100,
-  lineColor: '#000000',
-  backgroundColor: '#FFFFFF',
-  onError: undefined,
 };
 
 const styles = StyleSheet.create({
